@@ -52,8 +52,8 @@ void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PCPin PC3 */
-  GPIO_InitStruct.Pin = BUTTON_Pin|GPIO_PIN_3;
+  /*Configure GPIO pins : PCPin PCPin */
+  GPIO_InitStruct.Pin = BUTTON_Pin|ISO_RESET_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
