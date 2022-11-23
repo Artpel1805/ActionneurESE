@@ -60,8 +60,8 @@ all: main-build
 main-build: ActionneurESE_IDE.elf secondary-outputs
 
 # Tool invocations
-ActionneurESE_IDE.elf ActionneurESE_IDE.map: $(OBJS) $(USER_OBJS) /Users/arthurpellegrin/Desktop/ESE/ActionneurESE/ActionneurESE_IDE/STM32G474RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "ActionneurESE_IDE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/arthurpellegrin/Desktop/ESE/ActionneurESE/ActionneurESE_IDE/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ActionneurESE_IDE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+ActionneurESE_IDE.elf ActionneurESE_IDE.map: $(OBJS) $(USER_OBJS) C:\Users\nassi\Desktop\tp_acti\ActionneurESE\ActionneurESE_IDE\STM32G474RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ActionneurESE_IDE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\nassi\Desktop\tp_acti\ActionneurESE\ActionneurESE_IDE\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ActionneurESE_IDE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
