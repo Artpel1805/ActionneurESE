@@ -14,3 +14,4 @@
 
 
 void start_module(void);
+void stop_module(void);
