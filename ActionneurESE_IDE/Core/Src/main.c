@@ -130,10 +130,10 @@ int main(void)
   MX_TIM1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-	memset(argv,NULL,MAX_ARGS*sizeof(char*));
-	memset(cmdBuffer,NULL,CMD_BUFFER_SIZE*sizeof(char));
-	memset(uartRxBuffer,NULL,UART_RX_BUFFER_SIZE*sizeof(char));
-	memset(uartTxBuffer,NULL,UART_TX_BUFFER_SIZE*sizeof(char));
+	memset(argv,0,MAX_ARGS*sizeof(char*));
+	memset(cmdBuffer,0,CMD_BUFFER_SIZE*sizeof(char));
+	memset(uartRxBuffer,0,UART_RX_BUFFER_SIZE*sizeof(char));
+	memset(uartTxBuffer,0,UART_TX_BUFFER_SIZE*sizeof(char));
 
 	HAL_UART_Receive_IT(&huart2, uartRxBuffer, UART_RX_BUFFER_SIZE);
 	HAL_Delay(10);
@@ -176,15 +176,6 @@ int main(void)
 		}
 
 		if(newCmdReady){
-			/* if(strcmp(argv[0],"speed=")==0){
-	  	  			  if(strcmp(argv[1],"PA5")==0){
-	  	  				  //HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin, atoi(argv[2]));
-	  	  				  sprintf(uartTxBuffer,"Switch on/off led : %d\r\n",atoi(argv[2]));
-	  	  				  HAL_UART_Transmit(&huart2, uartTxBuffer, 32, HAL_MAX_DELAY);
-	  	  			  }
-	  	  			  else{
-	  	  				  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
-	  	  			  }*/
 
 			if(strcmp(argv[0],"speed")==0){
 				if(strlen(argv[1])==2)

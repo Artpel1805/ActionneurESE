@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00027c6f  00000000  00000000  0003a388  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00015897  00000000  00000000  00061ff7  2**0
+ 17 .debug_line   00015894  00000000  00000000  00061ff7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000fd52f  00000000  00000000  0007788e  2**0
+ 18 .debug_str    000fd52f  00000000  00000000  0007788b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  00174dbd  2**0
+ 19 .comment      00000050  00000000  00000000  00174dba  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00005304  00000000  00000000  00174e10  2**2
+ 20 .debug_frame  00005304  00000000  00000000  00174e0c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -507,8 +507,8 @@ void change_ccr(int rapport_cyclique){
  8000662:	6b9a      	ldr	r2, [r3, #56]	; 0x38
  8000664:	3a01      	subs	r2, #1
  8000666:	639a      	str	r2, [r3, #56]	; 0x38
-			HAL_Delay(20);
- 8000668:	2014      	movs	r0, #20
+			HAL_Delay(50);
+ 8000668:	2032      	movs	r0, #50	; 0x32
  800066a:	f000 fdff 	bl	800126c <HAL_Delay>
 		while(TIM1 -> CCR1 != goalCCR1){
  800066e:	4b0f      	ldr	r3, [pc, #60]	; (80006ac <change_ccr+0x70>)
@@ -536,8 +536,8 @@ void change_ccr(int rapport_cyclique){
  800068e:	6b9a      	ldr	r2, [r3, #56]	; 0x38
  8000690:	3201      	adds	r2, #1
  8000692:	639a      	str	r2, [r3, #56]	; 0x38
-			HAL_Delay(20);
- 8000694:	2014      	movs	r0, #20
+			HAL_Delay(50);
+ 8000694:	2032      	movs	r0, #50	; 0x32
  8000696:	f000 fde9 	bl	800126c <HAL_Delay>
 		while(TIM1 -> CCR1 != goalCCR1){
  800069a:	4b04      	ldr	r3, [pc, #16]	; (80006ac <change_ccr+0x70>)
@@ -743,13 +743,13 @@ int main(void)
   MX_USART2_UART_Init();
  80007ba:	f000 fc11 	bl	8000fe0 <MX_USART2_UART_Init>
   /* USER CODE BEGIN 2 */
-	memset(argv,NULL,MAX_ARGS*sizeof(char*));
+	memset(argv,0,MAX_ARGS*sizeof(char*));
  80007be:	1d3b      	adds	r3, r7, #4
  80007c0:	2224      	movs	r2, #36	; 0x24
  80007c2:	2100      	movs	r1, #0
  80007c4:	4618      	mov	r0, r3
  80007c6:	f005 fb8d 	bl	8005ee4 <memset>
-	memset(cmdBuffer,NULL,CMD_BUFFER_SIZE*sizeof(char));
+	memset(cmdBuffer,0,CMD_BUFFER_SIZE*sizeof(char));
  80007ca:	f107 0328 	add.w	r3, r7, #40	; 0x28
  80007ce:	2240      	movs	r2, #64	; 0x40
  80007d0:	2100      	movs	r1, #0
@@ -758,8 +758,8 @@ int main(void)
  80007d8:	4b78      	ldr	r3, [pc, #480]	; (80009bc <main+0x220>)
  80007da:	2200      	movs	r2, #0
  80007dc:	701a      	strb	r2, [r3, #0]
-	memset(uartRxBuffer,NULL,UART_RX_BUFFER_SIZE*sizeof(char));
-	memset(uartTxBuffer,NULL,UART_TX_BUFFER_SIZE*sizeof(char));
+	memset(uartRxBuffer,0,UART_RX_BUFFER_SIZE*sizeof(char));
+	memset(uartTxBuffer,0,UART_TX_BUFFER_SIZE*sizeof(char));
  80007de:	2240      	movs	r2, #64	; 0x40
  80007e0:	2100      	movs	r1, #0
  80007e2:	4877      	ldr	r0, [pc, #476]	; (80009c0 <main+0x224>)
@@ -902,10 +902,6 @@ int main(void)
  80008ca:	6ebb      	ldr	r3, [r7, #104]	; 0x68
  80008cc:	2b00      	cmp	r3, #0
  80008ce:	d0a1      	beq.n	8000814 <main+0x78>
-	  	  			  }
-	  	  			  else{
-	  	  				  HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
-	  	  			  }*/
 
 			if(strcmp(argv[0],"speed")==0){
  80008d0:	687b      	ldr	r3, [r7, #4]
