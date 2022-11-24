@@ -1,0 +1,58 @@
+\hypertarget{asservissement_8c}{}\doxysection{Core/\+Src/asservissement.c File Reference}
+\label{asservissement_8c}\index{Core/Src/asservissement.c@{Core/Src/asservissement.c}}
+
+
+\+: Asservissement du moteur via les PWM  
+
+
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}asservissement.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}power\+\_\+module.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{asservissement_8c_ad96cf7102d282c79da4f2d08d1ff1157}{get\+\_\+ccr\+\_\+value}} (int rapport\+\_\+cyclique)
+\begin{DoxyCompactList}\small\item\em Obtient la valeur du CCR. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{asservissement_8c_a9382fa1f8fced4eb115c2bf8c2ca9571}{change\+\_\+ccr}} (int rapport\+\_\+cyclique)
+\begin{DoxyCompactList}\small\item\em Change la valeur du CCR. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Asservissement du moteur via les PWM 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{asservissement_8c_a9382fa1f8fced4eb115c2bf8c2ca9571}\label{asservissement_8c_a9382fa1f8fced4eb115c2bf8c2ca9571}} 
+\index{asservissement.c@{asservissement.c}!change\_ccr@{change\_ccr}}
+\index{change\_ccr@{change\_ccr}!asservissement.c@{asservissement.c}}
+\doxysubsubsection{\texorpdfstring{change\_ccr()}{change\_ccr()}}
+{\footnotesize\ttfamily void change\+\_\+ccr (\begin{DoxyParamCaption}\item[{int}]{rapport\+\_\+cyclique }\end{DoxyParamCaption})}
+
+
+
+Change la valeur du CCR. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rapport\+\_\+cyclique} & Le rapport cyclique donné \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{asservissement_8c_ad96cf7102d282c79da4f2d08d1ff1157}\label{asservissement_8c_ad96cf7102d282c79da4f2d08d1ff1157}} 
+\index{asservissement.c@{asservissement.c}!get\_ccr\_value@{get\_ccr\_value}}
+\index{get\_ccr\_value@{get\_ccr\_value}!asservissement.c@{asservissement.c}}
+\doxysubsubsection{\texorpdfstring{get\_ccr\_value()}{get\_ccr\_value()}}
+{\footnotesize\ttfamily int get\+\_\+ccr\+\_\+value (\begin{DoxyParamCaption}\item[{int}]{rapport\+\_\+cyclique }\end{DoxyParamCaption})}
+
+
+
+Obtient la valeur du CCR. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rapport\+\_\+cyclique} & Le rapport cyclique donné\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La valeur du CCR 
+\end{DoxyReturn}
