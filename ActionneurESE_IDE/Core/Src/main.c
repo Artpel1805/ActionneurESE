@@ -4,14 +4,13 @@
  * @file           : main.c
  * @brief          : Main program body
  ******************************************************************************
- * @attention
  *
- * Copyright (c) 2022 STMicroelectronics.
- * All rights reserved.
+ *Programme permettant de:
  *
- * This software is licensed under terms that can be found in the LICENSE file
- * in the root directory of this software component.
- * If no LICENSE file comes with this software, it is provided AS-IS.
+ *Réaliser un shell pour commander le hacheur \n
+ *Réaliser la commande des 4 transistors du hacheur en commande complémentaire décalée \n
+ *Faire l'acquisition des différents capteurs \n
+ *Réaliser l'asservissement en temps réel \n
  *
  ******************************************************************************
  */
