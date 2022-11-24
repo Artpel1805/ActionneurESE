@@ -16,32 +16,32 @@ extern uint32_t ADC_Buffer[ADC_BUF_SIZE];
 /**
  * @brief Obtient la valeur du CCR
  *
- * @param[in] rapport_cyclique Le rapport cyclique donné
+ * @param[in] dutyCycle Le rapport cyclique donné
  *
  * @return La valeur du CCR
  */
 
-int get_ccr_value(int rapport_cyclique){
-	if(rapport_cyclique > 100){
+int get_ccr_value(int dutyCycle){
+	if(dutyCycle > 100){
 		return -1;
 	}
-	if(rapport_cyclique<0){
+	if(dutyCycle<0){
 		return -1;
 	}
 	int arr = TIM1 -> ARR;
-	return (rapport_cyclique * arr) / 100;
+	return (dutyCycle * arr) / 100;
 }
 
 
 /**
  * @brief Change la valeur du CCR
  *
- * @param[in] rapport_cyclique Le rapport cyclique donné
+ * @param[in] dutyCycle Le rapport cyclique donné
  *
  * @return
  */
-void change_ccr(int rapport_cyclique){
-	int goalCCR1 = get_ccr_value(rapport_cyclique);
+void change_ccr(int dutyCycle){
+	int goalCCR1 = get_ccr_value(dutyCycle);
 	if(goalCCR1 == -1){
 		return;
 	}
@@ -62,10 +62,19 @@ void change_ccr(int rapport_cyclique){
 		return;
 	}
 }
+/**
+ * @brief Calcul le courant
+ *
+ * @return
+ */
 
 int get_mean_current(void){
 	int current = 1;
-	current = (int)ADC_Buffer[0];
-	current = ((current * 3.3 / 4096) - 2.5 ) * 12;
+	int i;
+	for(i=0; i<ADC_BUF_SIZE; i++){
+		current = current + (int)ADC_Buffer[i];
+	}
+	current = current / ADC_BUF_SIZE;
+	current = ((current * 3.3 / 4096) - 2.5 ) * 12; // Convert ADC to Ampere value
 	return current;
 }

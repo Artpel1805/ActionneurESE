@@ -66,6 +66,20 @@ uint8_t started[]=
 		"\r\n| Welcome on Nucleo-STM32G431 |"
 		"\r\n*-----------------------------*"
 		"\r\n";
+uint8_t help[]=
+		"\r\n*-------*"
+		"\r\n| start |"
+		"\r\n*-----------------------------*"
+		"\r\n*-----------------------------*"
+		"\r\n| stop |"
+		"\r\n*-----------------------------*"
+		"\r\n*-----------------------------*"
+		"\r\n| speed=<dutyCycle> |"
+		"\r\n*-----------------------------*"
+		"\r\n*-----------------------------*"
+		"\r\n| current |"
+		"\r\n*---------*"
+		"\r\n";
 uint8_t newline[]="\r\n";
 uint8_t cmdNotFound[]="Command not found\r\n";
 uint8_t ADCError[]="Error with ADC";
@@ -208,10 +222,12 @@ int main(void)
 			else if(strcmp(argv[0],"current")==0)
 			{
 				int current = get_mean_current();
-				snprintf(uartTxBuffer, UART_TX_BUFFER_SIZE, "\r\nCurrent = %d \r\n", current);
+				snprintf((char*)uartTxBuffer, UART_TX_BUFFER_SIZE, "\r\nCurrent = %d \r\n", current);
 				HAL_UART_Transmit(&huart2, uartTxBuffer, sizeof(uartTxBuffer), HAL_MAX_DELAY);
 			}
-
+			else if(strcmp(argv[0],"help")==0){
+				HAL_UART_Transmit(&huart2, help, sizeof(help), HAL_MAX_DELAY);
+			}
 			else{
 				HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 			}
