@@ -72,10 +72,6 @@ uint8_t uartRxBuffer[UART_RX_BUFFER_SIZE];
 uint8_t uartTxBuffer[UART_TX_BUFFER_SIZE];
 const uint8_t powerOn[] ="Power ON \r\n ";
 const uint8_t powerOff[] = "Power OFF \r\n ";
-const uint8_t pinout[] = " \r\n PA12 TIM1_CH2N"
-		"\r\n PA11 TIM1_CH1N \r\n";
-const uint8_t help[] = " \r\n start : démarrage"
-		"\r\n stop \r\n";
 const uint8_t vitesseNotFound[]="\r\n Vitessse Inconnu \r\n";
 
 
@@ -197,15 +193,6 @@ int main(void)
 				stop_module();
 				HAL_UART_Transmit(&huart2, powerOff, sizeof(powerOff), HAL_MAX_DELAY);
 			}
-			else if(strcmp(argv[0],"pinout")==0)
-			{
-				HAL_UART_Transmit(&huart2, pinout, sizeof(pinout), HAL_MAX_DELAY);
-			}
-			else if(strcmp(argv[0],"help")==0)
-			{
-				HAL_UART_Transmit(&huart2, help, sizeof(help), HAL_MAX_DELAY);
-			}
-
 			else{
 				HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 			}
