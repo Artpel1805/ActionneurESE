@@ -93,3 +93,5 @@ Dans cette partie nous allons :
 
 * Mesurer la vitesse à partir du codeur présent sur chaque moteur,
 * Mesurer le courant à partir de la / des pin(s) adéquates retourné par le hacheur
+
+Rajouter les screens de Doxygen
