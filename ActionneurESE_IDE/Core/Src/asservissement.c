@@ -1,13 +1,22 @@
-/*
- * asservissement.c
+/**
+ *******************************************************************************
+ * @file           : asservissement.c
+ * @brief          : Asservissement du moteur via les PWM
+ ******************************************************************************
  *
- *  Created on: Nov 23, 2022
- *      Author: Cheng
  */
 
 #include "tim.h"
 #include "asservissement.h"
 #include "power_module.h"
+
+/**
+ * @brief Obtient la valeur du CCR
+ *
+ * @param[in] rapport_cyclique Le rapport cyclique donné
+ *
+ * @return La valeur du CCR
+ */
 
 int get_ccr_value(int rapport_cyclique){
 	if(rapport_cyclique > 100){
@@ -21,6 +30,13 @@ int get_ccr_value(int rapport_cyclique){
 }
 
 
+/**
+ * @brief Change la valeur du CCR
+ *
+ * @param[in] rapport_cyclique Le rapport cyclique donné
+ *
+ * @return
+ */
 void change_ccr(int rapport_cyclique){
 	int goalCCR1 = get_ccr_value(rapport_cyclique);
 	if( goalCCR1 > TIM1 -> CCR1){
