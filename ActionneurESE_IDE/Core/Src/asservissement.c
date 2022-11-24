@@ -12,6 +12,7 @@
 #include "power_module.h"
 
 extern uint32_t ADC_Buffer[ADC_BUF_SIZE];
+extern uint16_t vitesse;
 
 /**
  * @brief Obtient la valeur du CCR
@@ -77,4 +78,15 @@ int get_mean_current(void){
 	current = current / ADC_BUF_SIZE;
 	current = ((current * 3.3 / 4096) - 2.5 ) * 12; // Convert ADC to Ampere value
 	return current;
+}
+
+/**
+ * @brief Recupere la valeur de la vitesse du moteur
+ *
+ * @return
+ */
+
+void fetch_speed(void){
+	vitesse = htim2.Instance->CNT*10/1180;
+	htim2.Instance->CNT=0;
 }

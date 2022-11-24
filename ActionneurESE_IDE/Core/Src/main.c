@@ -91,7 +91,8 @@ uint8_t printCurrent[] = "\r\nCurrent = %d \r\n";
 const uint8_t powerOn[] ="Power ON \r\n ";
 const uint8_t powerOff[] = "Power OFF \r\n ";
 const uint8_t vitesseNotFound[]="\r\n Vitessse Inconnu \r\n";
-
+uint8_t printSpeed[] = "\r\nSpeed = %d \r\n";
+uint16_t vitesse;
 
 
 /* USER CODE END PV */
@@ -145,6 +146,8 @@ int main(void)
 	MX_TIM1_Init();
 	MX_USART2_UART_Init();
 	MX_ADC1_Init();
+	MX_TIM2_Init();
+	MX_TIM8_Init();
 	/* USER CODE BEGIN 2 */
 	if(HAL_OK != HAL_ADC_Start_DMA(&hadc1, ADC_Buffer, ADC_BUF_SIZE))
 		HAL_UART_Transmit(&huart2, ADCError, sizeof(ADCError), HAL_MAX_DELAY);
@@ -228,6 +231,11 @@ int main(void)
 			else if(strcmp(argv[0],"help")==0){
 				HAL_UART_Transmit(&huart2, help, sizeof(help), HAL_MAX_DELAY);
 			}
+			else if(strcmp(argv[0],"vitesse")==0)
+			{
+				snprintf((char*)uartTxBuffer, UART_TX_BUFFER_SIZE, "\r\n Vitesse = %d \r\n", vitesse);
+				HAL_UART_Transmit(&huart2, uartTxBuffer, sizeof(uartTxBuffer), HAL_MAX_DELAY);
+			}
 			else{
 				HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 			}
@@ -295,6 +303,12 @@ void HAL_UART_RxCpltCallback (UART_HandleTypeDef * huart){
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* AdcHandle)
 {
+
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+	if(htim == &htim8)
+		fetch_speed();
 
 }
 /* USER CODE END 4 */
