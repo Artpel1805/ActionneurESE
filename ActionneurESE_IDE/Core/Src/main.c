@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
+#include "dma.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -67,9 +69,12 @@ uint8_t started[]=
 		"\r\n";
 uint8_t newline[]="\r\n";
 uint8_t cmdNotFound[]="Command not found\r\n";
+uint8_t ADCError[]="Error with ADC";
 uint32_t uartRxReceived;
 uint8_t uartRxBuffer[UART_RX_BUFFER_SIZE];
 uint8_t uartTxBuffer[UART_TX_BUFFER_SIZE];
+uint32_t ADC_Buffer[ADC_BUF_SIZE];
+uint8_t printCurrent[] = "\r\nCurrent = %d \r\n";
 const uint8_t powerOn[] ="Power ON \r\n ";
 const uint8_t powerOff[] = "Power OFF \r\n ";
 const uint8_t vitesseNotFound[]="\r\n Vitessse Inconnu \r\n";
@@ -123,9 +128,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM1_Init();
   MX_USART2_UART_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
+	if(HAL_OK != HAL_ADC_Start_DMA(&hadc1, ADC_Buffer, ADC_BUF_SIZE))
+		HAL_UART_Transmit(&huart2, ADCError, sizeof(ADCError), HAL_MAX_DELAY);
+
 	memset(argv,0,MAX_ARGS*sizeof(char*));
 	memset(cmdBuffer,0,CMD_BUFFER_SIZE*sizeof(char));
 	memset(uartRxBuffer,0,UART_RX_BUFFER_SIZE*sizeof(char));
@@ -136,6 +146,9 @@ int main(void)
 
 	HAL_UART_Transmit(&huart2, started, sizeof(started), HAL_MAX_DELAY);
 	HAL_UART_Transmit(&huart2, prompt, sizeof(prompt), HAL_MAX_DELAY);
+
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -193,6 +206,13 @@ int main(void)
 				stop_module();
 				HAL_UART_Transmit(&huart2, powerOff, sizeof(powerOff), HAL_MAX_DELAY);
 			}
+			else if(strcmp(argv[0],"current")==0)
+			{
+				int current = get_mean_current();
+				snprintf(uartTxBuffer, UART_TX_BUFFER_SIZE, "\r\nCurrent = %d \r\n", current);
+				HAL_UART_Transmit(&huart2, uartTxBuffer, sizeof(uartTxBuffer), HAL_MAX_DELAY);
+			}
+
 			else{
 				HAL_UART_Transmit(&huart2, cmdNotFound, sizeof(cmdNotFound), HAL_MAX_DELAY);
 			}
@@ -258,6 +278,10 @@ void HAL_UART_RxCpltCallback (UART_HandleTypeDef * huart){
 	HAL_UART_Receive_IT(&huart2, uartRxBuffer, UART_RX_BUFFER_SIZE);
 }
 
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* AdcHandle)
+{
+
+}
 /* USER CODE END 4 */
 
 /**
