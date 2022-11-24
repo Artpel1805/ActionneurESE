@@ -21,7 +21,17 @@
  */
 =======
 extern uint32_t ADC_Buffer[ADC_BUF_SIZE];
+<<<<<<< HEAD
 >>>>>>> 097fd2ae292228c9ba2fc67a9b708c880f3be775
+=======
+/**
+ * @brief Obtient la valeur du CCR
+ *
+ * @param[in] rapport_cyclique Le rapport cyclique donné
+ *
+ * @return La valeur du CCR
+ */
+>>>>>>> origin/main
 
 int get_ccr_value(int rapport_cyclique){
 	if(rapport_cyclique > 100){
@@ -40,6 +50,10 @@ int get_ccr_value(int rapport_cyclique){
  *
  * @param[in] rapport_cyclique Le rapport cyclique donné
  *
+<<<<<<< HEAD
+=======
+ * @return
+>>>>>>> origin/main
  */
 void change_ccr(int rapport_cyclique){
 	int goalCCR1 = get_ccr_value(rapport_cyclique);
