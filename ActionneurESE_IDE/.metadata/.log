@@ -1,0 +1,26 @@
+!SESSION 2022-11-24 16:35:37.069 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=fr_FR
+Framework arguments:  -keyring /Users/arthurpellegrin/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/arthurpellegrin/.eclipse_keyring
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-11-24 16:36:01.042
+!MESSAGE Log4j initialized with config file /Users/arthurpellegrin/Desktop/ESE/ActionneurESE/ActionneurESE_IDE/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-11-24 16:36:07.045
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2022-11-24 16:38:17.759 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=fr_FR
+Framework arguments:  -keyring /Users/arthurpellegrin/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/arthurpellegrin/.eclipse_keyring
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-11-24 16:38:39.690
+!MESSAGE Log4j initialized with config file /Users/arthurpellegrin/Desktop/ESE/ActionneurESE/ActionneurESE_IDE/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-11-24 16:38:46.058
+!MESSAGE Started RMI Server, listening on port 41337
