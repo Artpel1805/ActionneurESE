@@ -14,3 +14,4 @@
 
 int get_ccr_value(int);
 void change_ccr(int);
+int get_mean_current(void);

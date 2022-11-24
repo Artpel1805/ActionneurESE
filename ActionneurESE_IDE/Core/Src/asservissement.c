@@ -5,11 +5,13 @@
  ******************************************************************************
  *
  */
-
+#include "main.h"
+#include "adc.h"
 #include "tim.h"
 #include "asservissement.h"
 #include "power_module.h"
 
+<<<<<<< HEAD
 /**
  * @brief Obtient la valeur du CCR
  *
@@ -17,6 +19,9 @@
  *
  * @return La valeur du CCR
  */
+=======
+extern uint32_t ADC_Buffer[ADC_BUF_SIZE];
+>>>>>>> 097fd2ae292228c9ba2fc67a9b708c880f3be775
 
 int get_ccr_value(int rapport_cyclique){
 	if(rapport_cyclique > 100){
@@ -57,4 +62,11 @@ void change_ccr(int rapport_cyclique){
 		}
 		return;
 	}
+}
+
+int get_mean_current(void){
+	int current = 1;
+	current = (int)ADC_Buffer[0];
+	current = ((current * 3.3 / 4096) - 2.5 ) * 12;
+	return current;
 }
