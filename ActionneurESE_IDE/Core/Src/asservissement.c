@@ -35,7 +35,6 @@ int get_ccr_value(int rapport_cyclique){
  *
  * @param[in] rapport_cyclique Le rapport cyclique donné
  *
- * @return
  */
 void change_ccr(int rapport_cyclique){
 	int goalCCR1 = get_ccr_value(rapport_cyclique);

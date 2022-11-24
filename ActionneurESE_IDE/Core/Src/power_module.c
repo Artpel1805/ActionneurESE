@@ -1,8 +1,9 @@
-/*
- * power_module.c
+/**
+ *******************************************************************************
+ * @file           : power_module.c
+ * @brief          : Démarrage et extinction du moteur
+ ******************************************************************************
  *
- *  Created on: Nov 23, 2022
- *      Author: arthurpellegrin
  */
 
 
@@ -10,6 +11,10 @@
 #include "main.h"
 #include "tim.h"
 
+
+/**
+ * @brief Allume le moteur
+ */
 
 void start_module(){
 	HAL_GPIO_WritePin(ISO_RESET_GPIO_Port, ISO_RESET_Pin, SET);
@@ -23,6 +28,10 @@ void start_module(){
 
 }
 
+
+/**
+ * @brief Eteint le moteur
+ */
 void stop_module(){
 	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
 	HAL_TIMEx_PWMN_Stop(&htim1, TIM_CHANNEL_1);
