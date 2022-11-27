@@ -1,0 +1,102 @@
+\hypertarget{asservissement_8c}{}\doxysection{asservissement.\+c File Reference}
+\label{asservissement_8c}\index{asservissement.c@{asservissement.c}}
+
+
+\+: Asservissement du moteur via les PWM  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}asservissement.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}power\+\_\+module.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{asservissement_8c_a478461ad9e3efd04d9fa381933324207}{get\+\_\+ccr\+\_\+value}} (int duty\+Cycle)
+\begin{DoxyCompactList}\small\item\em Obtient la valeur du CCR. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{asservissement_8c_a4177c417e839ce11fb5a66374703915c}{change\+\_\+ccr}} (int duty\+Cycle)
+\begin{DoxyCompactList}\small\item\em Change la valeur du CCR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{asservissement_8c_ae99f8160138fc5fd081633bfe59f55e0}{get\+\_\+mean\+\_\+current}} (void)
+\begin{DoxyCompactList}\small\item\em Calcul le courant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{asservissement_8c_a823a81a40583720e2487fe3be60e02da}{fetch\+\_\+speed}} (void)
+\begin{DoxyCompactList}\small\item\em Recupere la valeur de la vitesse du moteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{asservissement_8c_a75a36836c0e7be9e26b9c4cb6ff44c25}\label{asservissement_8c_a75a36836c0e7be9e26b9c4cb6ff44c25}} 
+uint32\+\_\+t {\bfseries ADC\+\_\+\+Buffer} \mbox{[}ADC\+\_\+\+BUF\+\_\+\+SIZE\mbox{]}
+\item 
+\mbox{\Hypertarget{asservissement_8c_afe8e376f26c3acb8907b5dd8f596ed23}\label{asservissement_8c_afe8e376f26c3acb8907b5dd8f596ed23}} 
+uint16\+\_\+t {\bfseries vitesse}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Asservissement du moteur via les PWM 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{asservissement_8c_a4177c417e839ce11fb5a66374703915c}\label{asservissement_8c_a4177c417e839ce11fb5a66374703915c}} 
+\index{asservissement.c@{asservissement.c}!change\_ccr@{change\_ccr}}
+\index{change\_ccr@{change\_ccr}!asservissement.c@{asservissement.c}}
+\doxysubsubsection{\texorpdfstring{change\_ccr()}{change\_ccr()}}
+{\footnotesize\ttfamily void change\+\_\+ccr (\begin{DoxyParamCaption}\item[{int}]{duty\+Cycle }\end{DoxyParamCaption})}
+
+
+
+Change la valeur du CCR. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em duty\+Cycle} & Le rapport cyclique donné\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{asservissement_8c_a823a81a40583720e2487fe3be60e02da}\label{asservissement_8c_a823a81a40583720e2487fe3be60e02da}} 
+\index{asservissement.c@{asservissement.c}!fetch\_speed@{fetch\_speed}}
+\index{fetch\_speed@{fetch\_speed}!asservissement.c@{asservissement.c}}
+\doxysubsubsection{\texorpdfstring{fetch\_speed()}{fetch\_speed()}}
+{\footnotesize\ttfamily void fetch\+\_\+speed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Recupere la valeur de la vitesse du moteur. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{asservissement_8c_a478461ad9e3efd04d9fa381933324207}\label{asservissement_8c_a478461ad9e3efd04d9fa381933324207}} 
+\index{asservissement.c@{asservissement.c}!get\_ccr\_value@{get\_ccr\_value}}
+\index{get\_ccr\_value@{get\_ccr\_value}!asservissement.c@{asservissement.c}}
+\doxysubsubsection{\texorpdfstring{get\_ccr\_value()}{get\_ccr\_value()}}
+{\footnotesize\ttfamily int get\+\_\+ccr\+\_\+value (\begin{DoxyParamCaption}\item[{int}]{duty\+Cycle }\end{DoxyParamCaption})}
+
+
+
+Obtient la valeur du CCR. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em duty\+Cycle} & Le rapport cyclique donné\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La valeur du CCR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{asservissement_8c_ae99f8160138fc5fd081633bfe59f55e0}\label{asservissement_8c_ae99f8160138fc5fd081633bfe59f55e0}} 
+\index{asservissement.c@{asservissement.c}!get\_mean\_current@{get\_mean\_current}}
+\index{get\_mean\_current@{get\_mean\_current}!asservissement.c@{asservissement.c}}
+\doxysubsubsection{\texorpdfstring{get\_mean\_current()}{get\_mean\_current()}}
+{\footnotesize\ttfamily int get\+\_\+mean\+\_\+current (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Calcul le courant. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

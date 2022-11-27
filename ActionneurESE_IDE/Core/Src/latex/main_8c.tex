@@ -1,0 +1,214 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+\+: Main program body  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dma.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}power\+\_\+module.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}asservissement.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a05f5d709605c6317c97e4974bec3402a}\label{main_8c_a05f5d709605c6317c97e4974bec3402a}} 
+\#define {\bfseries UART\+\_\+\+TX\+\_\+\+BUFFER\+\_\+\+SIZE}~64
+\item 
+\mbox{\Hypertarget{main_8c_a5bdd6772c246436bb14377095de79b31}\label{main_8c_a5bdd6772c246436bb14377095de79b31}} 
+\#define {\bfseries UART\+\_\+\+RX\+\_\+\+BUFFER\+\_\+\+SIZE}~1
+\item 
+\mbox{\Hypertarget{main_8c_a8a0465f8e8bbe71e4d6e8011e975bf75}\label{main_8c_a8a0465f8e8bbe71e4d6e8011e975bf75}} 
+\#define {\bfseries CMD\+\_\+\+BUFFER\+\_\+\+SIZE}~64
+\item 
+\mbox{\Hypertarget{main_8c_a29b7451465deac204c5f7cb1f9c6e1fc}\label{main_8c_a29b7451465deac204c5f7cb1f9c6e1fc}} 
+\#define {\bfseries MAX\+\_\+\+ARGS}~9
+\item 
+\mbox{\Hypertarget{main_8c_aca3b498f5936dbe4f3076a47c3e1810d}\label{main_8c_aca3b498f5936dbe4f3076a47c3e1810d}} 
+\#define {\bfseries ASCII\+\_\+\+LF}~0x0A
+\item 
+\mbox{\Hypertarget{main_8c_a089ed4925403ab02a05e603967c74579}\label{main_8c_a089ed4925403ab02a05e603967c74579}} 
+\#define {\bfseries ASCII\+\_\+\+CR}~0x0D
+\item 
+\mbox{\Hypertarget{main_8c_a3bb28e223b7c203113dc8c0387d43b36}\label{main_8c_a3bb28e223b7c203113dc8c0387d43b36}} 
+\#define {\bfseries ASCII\+\_\+\+DEL}~0x7F
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ae494a9643f29b87d6d81e5264e60e57b}\label{main_8c_ae494a9643f29b87d6d81e5264e60e57b}} 
+void {\bfseries HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback} (UART\+\_\+\+Handle\+Type\+Def $\ast$huart)
+\item 
+\mbox{\Hypertarget{main_8c_a9297a848610654bf5ca8e6e68032bd07}\label{main_8c_a9297a848610654bf5ca8e6e68032bd07}} 
+void {\bfseries HAL\+\_\+\+ADC\+\_\+\+Conv\+Cplt\+Callback} (ADC\+\_\+\+Handle\+Type\+Def $\ast$Adc\+Handle)
+\item 
+\mbox{\Hypertarget{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}\label{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}} 
+void {\bfseries HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback} (TIM\+\_\+\+Handle\+Type\+Def $\ast$htim)
+\item 
+void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a8b893859891afe33d4bba72ba06fd381}\label{main_8c_a8b893859891afe33d4bba72ba06fd381}} 
+uint8\+\_\+t {\bfseries prompt} \mbox{[}$\,$\mbox{]} =\char`\"{}user@Nucleo-\/STM32\+G431$>$$>$\char`\"{}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a835573497a60b314a9bf5a6fcac9602a}{started}} \mbox{[}$\,$\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_af2b897a62eb9817d9ab655f14872c1e0}{help}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a98a2c452a5e7053154e9f49a4cad4e98}\label{main_8c_a98a2c452a5e7053154e9f49a4cad4e98}} 
+uint8\+\_\+t {\bfseries newline} \mbox{[}$\,$\mbox{]} =\char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a25205e7c6d817620c1d9f7351a817a04}\label{main_8c_a25205e7c6d817620c1d9f7351a817a04}} 
+uint8\+\_\+t {\bfseries cmd\+Not\+Found} \mbox{[}$\,$\mbox{]} =\char`\"{}Command not found\textbackslash{}r\textbackslash{}n\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_ab6c00962ada4eb523ab859362be53b5b}\label{main_8c_ab6c00962ada4eb523ab859362be53b5b}} 
+uint8\+\_\+t {\bfseries ADCError} \mbox{[}$\,$\mbox{]} =\char`\"{}Error with ADC\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a9d8a518124b90c249458a5b30ab36c52}\label{main_8c_a9d8a518124b90c249458a5b30ab36c52}} 
+uint32\+\_\+t {\bfseries uart\+Rx\+Received}
+\item 
+\mbox{\Hypertarget{main_8c_a2542ac6d4440b9e1c4a6435c55c79df3}\label{main_8c_a2542ac6d4440b9e1c4a6435c55c79df3}} 
+uint8\+\_\+t {\bfseries uart\+Rx\+Buffer} \mbox{[}UART\+\_\+\+RX\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a3f98e2db2fa0d8f0cfd87b887576207f}\label{main_8c_a3f98e2db2fa0d8f0cfd87b887576207f}} 
+uint8\+\_\+t {\bfseries uart\+Tx\+Buffer} \mbox{[}UART\+\_\+\+TX\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a75a36836c0e7be9e26b9c4cb6ff44c25}\label{main_8c_a75a36836c0e7be9e26b9c4cb6ff44c25}} 
+uint32\+\_\+t {\bfseries ADC\+\_\+\+Buffer} \mbox{[}ADC\+\_\+\+BUF\+\_\+\+SIZE\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a836a506ef52429405047161232efbc7b}\label{main_8c_a836a506ef52429405047161232efbc7b}} 
+uint8\+\_\+t {\bfseries print\+Current} \mbox{[}$\,$\mbox{]} = \char`\"{}\textbackslash{}r\textbackslash{}n\+Current = \%d \textbackslash{}r\textbackslash{}n\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_aaf2189933bda013fb3c72e886dc5a3d2}\label{main_8c_aaf2189933bda013fb3c72e886dc5a3d2}} 
+const uint8\+\_\+t {\bfseries power\+On} \mbox{[}$\,$\mbox{]} =\char`\"{}Power ON \textbackslash{}r\textbackslash{}n \char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_aeb39f657e7d4109c7d352e6ad376228a}\label{main_8c_aeb39f657e7d4109c7d352e6ad376228a}} 
+const uint8\+\_\+t {\bfseries power\+Off} \mbox{[}$\,$\mbox{]} = \char`\"{}Power OFF \textbackslash{}r\textbackslash{}n \char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a9a5a5d5b36904e517599754a386f4f3a}\label{main_8c_a9a5a5d5b36904e517599754a386f4f3a}} 
+const uint8\+\_\+t {\bfseries vitesse\+Not\+Found} \mbox{[}$\,$\mbox{]} =\char`\"{}\textbackslash{}r\textbackslash{}n Vitessse Inconnu \textbackslash{}r\textbackslash{}n\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_aeb56b780b040676ccdbd4b6946fcf0ba}\label{main_8c_aeb56b780b040676ccdbd4b6946fcf0ba}} 
+uint8\+\_\+t {\bfseries print\+Speed} \mbox{[}$\,$\mbox{]} = \char`\"{}\textbackslash{}r\textbackslash{}n\+Speed = \%d \textbackslash{}r\textbackslash{}n\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_afe8e376f26c3acb8907b5dd8f596ed23}\label{main_8c_afe8e376f26c3acb8907b5dd8f596ed23}} 
+uint16\+\_\+t {\bfseries vitesse}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Main program body 
+
+Programme permettant de\+:
+
+Réaliser un shell pour commander le hacheur ~\newline
+Réaliser la commande des 4 transistors du hacheur en commande complémentaire décalée ~\newline
+Faire l\textquotesingle{}acquisition des différents capteurs ~\newline
+Réaliser l\textquotesingle{}asservissement en temps réel ~\newline
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a1730ffe1e560465665eb47d9264826f9}\label{main_8c_a1730ffe1e560465665eb47d9264826f9}} 
+\index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The application entry point. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\label{main_8c_a70af21c671abfcc773614a9a4f63d920}} 
+\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}
+\index{SystemClock\_Config@{SystemClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SystemClock\_Config()}{SystemClock\_Config()}}
+{\footnotesize\ttfamily void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+System Clock Configuration. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Configure the main internal regulator output voltage
+
+Initializes the RCC Oscillators according to the specified parameters in the RCC\+\_\+\+Osc\+Init\+Type\+Def structure.
+
+Initializes the CPU, AHB and APB buses clocks
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_af2b897a62eb9817d9ab655f14872c1e0}\label{main_8c_af2b897a62eb9817d9ab655f14872c1e0}} 
+\index{main.c@{main.c}!help@{help}}
+\index{help@{help}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{help}{help}}
+{\footnotesize\ttfamily uint8\+\_\+t help\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n| start |"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n| stop |"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n| speed=<dutyCycle> |"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n| current |"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8c_a835573497a60b314a9bf5a6fcac9602a}\label{main_8c_a835573497a60b314a9bf5a6fcac9602a}} 
+\index{main.c@{main.c}!started@{started}}
+\index{started@{started}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{started}{started}}
+{\footnotesize\ttfamily uint8\+\_\+t started\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n| Welcome on Nucleo-\/STM32G431 |"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*"{}}}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}}}
+
+\end{DoxyCode}
