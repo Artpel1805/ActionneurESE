@@ -14,7 +14,7 @@ Le but de ce TP est de commander puis d'asservir une MCC grâce à une STM32 et 
 
 **On réalise un Schémas du montage :**
 
-![img](assets/Schemas\ Global.png)
+![img](assets/Schemas Global.png)
 
 
 ## TP1: Commande MCC basique 
