@@ -17,7 +17,7 @@ Le but de ce TP est de commander puis d'asservir une MCC grâce à une STM32 et 
 ![img](assets/Schemas_Global.png)
 
 
-## TP1: Commande MCC basique 
+## Commande MCC basique 
 
 L'objectif de cette partie est de :
 
@@ -67,17 +67,10 @@ Nous travaillons sur les phases bleu et jaune, la configuration est la suivante:
 
 Le hacheur a besoin d'une séquence d'amorçage pour obtenir une tension de sortie.
 En regardant dans la datasheet, on lit que le hacheur a besoin d’avoir une impulsion
-d’au moins 2μs sur la pin Iso_reset (broche 33) pour pouvoir démarrer.
+d’au moins 2ms sur la pin Iso_reset (broche 33) pour pouvoir démarrer.
 
 **A completer**
 
-#### Commande de vitesse
-
-Pour controler la vitesse du moteur, nous allons envoyer une séquence via la liaison UART (par l'USB) de la forme :
-
-**speed=XXXX**
-
-[Photo_vitesse_putty]
 
 #### Premiers tests
 
@@ -92,7 +85,7 @@ nous appliquons donc un démarrage progressif pour résoudre ce problème.
 
 
 
-## TP2: Mesure de vitesse et de courant
+## Interface de contrôle
 
 **A completer**
 
@@ -102,3 +95,15 @@ Dans cette partie nous allons :
 * Mesurer le courant à partir de la / des pin(s) adéquates retourné par le hacheur
 
 Rajouter les screens de Doxygen
+
+
+
+#### Commande de vitesse
+
+Pour controler la vitesse du moteur, nous allons envoyer une séquence via la liaison UART (par l'USB) de la forme :
+
+**speed=XXXX**
+
+[Photo_vitesse_putty]
+
+## Asservissement
