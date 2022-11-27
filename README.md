@@ -1,13 +1,16 @@
+# <div align="center">Commande et Asservissement MCC</div>
 
-# TP Actionneur et automatique appliqué
+## Objectifs
 
-Le but de ce TP est de :
+Le but de ce TP est de commander puis d'asservir une MCC grâce à une STM32 et une interface de contrôle
 
-* Réaliser un shell pour commander le hacheur
-* Réaliser la commande des 4 transistors du hacheur en commande complémentaire décalée
-* Faire l'acquisition des différents capteurs
-* Réaliser l'asservissement en temps réel
-* Créer une documentation à partir de Doxygen
+**Materiel utlisé :**
+
+* Nucleo-STM32G474RE
+* Carte Electronique De transition (STM32 vers Hacheur)
+* Un Hacheur dsPICDEMTM MC1L 3-PHASE
+* STM32CubeIDE
+* Une MCC avec sa géneratrice Tachymétrique
 
 
 ## TP1: Commande MCC basique 
