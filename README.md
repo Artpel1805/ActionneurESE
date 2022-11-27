@@ -12,6 +12,10 @@ Le but de ce TP est de commander puis d'asservir une MCC grâce à une STM32 et 
 * STM32CubeIDE
 * Une MCC avec sa géneratrice Tachymétrique
 
+**On réalise un Schémas du montage :**
+
+![img](assets/Schemas_Global.png)
+
 
 ## TP1: Commande MCC basique 
 
