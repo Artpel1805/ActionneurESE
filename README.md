@@ -139,7 +139,12 @@ Pour palier à ce problème nous incrémentons pas à pas le CCR
 ### Asservissement Vitesse
 Notre module comportes 3 signaux en sortie  : 2 signaux en quadrature de phase qui nous permettent de savoir le sens de rotation et un signal qui nous determine la fin d'un tour complet .
 
-En utilisant l'`INPUT CAPTURE DE MODE` du Timer pour pouvoir calculer la sortie du signal Z afin de determiner le nombre de trous dans le disque .
+En utilisant l'`INPUT CAPTURE  MODE` la fonctionnalite du Timer pour pouvoir calculer la sortie du signal Z afin de determiner le nombre de trous dans le disque en divisant la periode du Channel A par  celle de Z .
+
+Après cela , on configure un autre timer pour calculer la vitesse du moteur chaque `1ms` .
+
+
+
 
 
 
