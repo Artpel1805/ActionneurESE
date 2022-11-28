@@ -143,4 +143,16 @@ Pour palier à ce problème nous incrémentons pas à pas le CCR
 Le hâcheur permet grâce à des capteurs Hall de mesurer le courant traversant chaque phase.
 Le signal renvoyé par le hâcheur est un signal analogique on doit donc utiliser l'ADC de notre STM32 pour pouvoir convertir en `int`
 
+On décide d'utiliser l'ADC avec le DMA pour de meilleures performances.
+
+On trigger l'ADC sur les Ticks du TIM1.
+
+Il faut donc activer le `Trigger Event` sur TIM1.
+Pour pouvoir aussi effectuer plusieurs mesures on configure bien le DMA en `Circular`.
+
+
+On récupère une valeure de l'ADC mais il faut la convertir en A. On a une équation du type : 
+* A = aV +b
+
+
 
