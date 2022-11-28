@@ -59,7 +59,7 @@ Le tick du temps mort est syncronisé sur la SysTick, qui est 170 MHz sur notre 
 On configure `dead time = 210 ticks` ce qui nous donne un ` temps mort = 12us > 2us` .
 
 Nous pouvons voir sur l'oscilloscope les PWM et le dead time:
-![img](assets/Schemas_Global.png)
+![img](assets/Oscillateur_4PWM.png)
 
 #### Prise en main du hacheur et cablâge
 
