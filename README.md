@@ -119,12 +119,16 @@ On implémente la fonction `start` qui doit nous renvoyer `powerOn` et qui déma
 
 Ainsi que la fonction `stop` qui désactive simplement les PWM. 
 
-#### Commande et Asservissement
+## Commande et Asservissement
 
-Pour controler la vitesse du moteur, nous allons envoyer une séquence via la liaison UART (par l'USB) de la forme :
+Pour controler la vitesse du moteur, nous allons envoyer une séquence via la liaison UART () de la forme :
 
-**speed=XXXX**
+**speed=XX** où XX est le rapport cyclique de la PWM1
 
-[Photo_vitesse_putty]
+Lors de la reception d'une valeur on change alors le registre CCR, pour modifier le rapport cyclique et ainsi la vitesse.
 
-## Asservissement
+On remarque que lorsque la valeur de rapport cyclique est trop éloigné de la valeur actuelle, le système déclenche une sécurité car cela provoque un grand pic de courant
+
+Pour palier à ce problème nous incrémentons pas à pas le CCR
+
+<a href="https://github.com/Artpel1805/ActionneurESE/blob/5bacd98ae387ad19551c07d27ae12c279950304c/ActionneurESE_IDE/Core/Src/asservissement.c#L50-L53"></a>
