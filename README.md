@@ -46,7 +46,7 @@ On veut une résolution de 10bits on doit donc avoir 2^10-1 = 1024-1 tics de tim
 
 On veut de plus une fréquence de travail de 16kHz. Notre fréquence d'horloge est de 170MHz on a donc `f_timer = f_horloge / (ARR + 1)(PSC + 1 )`
 
-On a donc `PSC = 10 - 1`
+On a donc `PSC = 10 - 1` pour obtenir une fréquence de `f_timer = 16,6kHz`. Soit 3,75% d'erreur ce qui est satisfaisant.
 
 On décide de choisir un rapport cyclique `a=0,6` et `a'=1-0,6` pour les tests.
 
