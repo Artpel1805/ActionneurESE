@@ -84,12 +84,14 @@ Où les broches du connecteur du modules sont documenté ci dessous:
 
 #### Commande start
 
-Le hacheur a besoin d'une séquence d'amorçage pour obtenir une tension de sortie.
+Le hacheur a besoin d'une séquence d'amorçage pour démarer.
 En regardant dans la datasheet, on lit que le hacheur a besoin d’avoir une impulsion
 d’au moins 2ms sur la pin Iso_reset (broche 33) pour pouvoir démarrer.
 
-**A completer**
+On utilise donc un simple `GPIO_Out` pour démarer le module.
+On décide aussi d'utiliser le `User_Button` pour déclencher la séquence d'amorcage en le configurant sur `GPIO_EXTI`.
 
+> ⚠️  Il faut bien penser à mettre la priorité de l'interruption plus petite que la priorité du SysTick si on utilise un HAL_Delay()
 
 #### Premiers tests
 
