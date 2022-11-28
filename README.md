@@ -38,9 +38,16 @@ Nous souhaitons les caractéristiques suivantes :
 * Résolution minimum : **10bits**
 * PWM en commande complémentaire décalée
 
-Calcul de la fréquence :
+**Calcul de la fréquence :**
 
 On configure donc le TIM1 pour génerer des PWM sur les channels 1 et 2 ainsi que leurs complémentaires respectivent. 
+
+On veut une résolution de 10bits on doit donc avoir 2^10-1 = 1024-1 tics de timer. On a donc `ARR = 1024 -1`
+
+On veut de plus une fréquence de travail de 16kHz. Notre fréquence d'horloge est de 170MHz on a donc `f_timer = f_horloge / (ARR + 1)(PSC + 1 )`
+
+On a donc `PSC = 10 - 1`
+
 On décide de choisir un rapport cyclique a=0,6 et 1-0,6 pour les tests.
 
 On doit aussi génerer des commandes complémentaires décalée donc on met l'option `Counter Mode: Center Align Mode 1`
