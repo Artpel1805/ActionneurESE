@@ -121,6 +121,8 @@ Ainsi que la fonction `stop` qui désactive simplement les PWM.
 
 ## Commande et Asservissement
 
+### Commande Vitesse
+
 Pour controler la vitesse du moteur, nous allons envoyer une séquence via la liaison UART () de la forme :
 
 **speed=XX** où XX est le rapport cyclique de la PWM1
@@ -132,3 +134,13 @@ On remarque que lorsque la valeur de rapport cyclique est trop éloigné de la v
 Pour palier à ce problème nous incrémentons pas à pas le CCR
 
 <a>"https://github.com/Artpel1805/ActionneurESE/blob/5bacd98ae387ad19551c07d27ae12c279950304c/ActionneurESE_IDE/Core/Src/asservissement.c#L50-L53"</a>
+
+
+### Asservissement Vitesse
+
+### Asservissement Courant 
+
+Le hâcheur permet grâce à des capteurs Hall de mesurer le courant traversant chaque phase.
+Le signal renvoyé par le hâcheur est un signal analogique on doit donc utiliser l'ADC de notre STM32 pour pouvoir convertir en `int`
+
+
