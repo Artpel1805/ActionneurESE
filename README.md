@@ -22,12 +22,12 @@ Le but de ce TP est de commander puis d'asservir une MCC grâce à une STM32 et 
 L'objectif de cette partie est de :
 
 * Générer 4 PWM en complémentaire décalée pour contrôler en boucle ouverte le moteur en respectant le cahier des charges,
-* Inclure le temps mort,
-* Vérifier les signaux de commande à l'oscilloscope,
-* Prendre en main le hacheur,
-* Câbler correctement la STM32 au hacheur
-* Générer le signal de commande "start" en fonction de la datasheet
-* Faire un premier essai de commande moteur
+* Inclure le temps mort.
+* Vérifier les signaux de commande à l'oscilloscope.
+* Prendre en main le hacheur.
+* Câbler correctement la STM32 au hacheur.
+* Générer le signal de commande "start" en fonction de la datasheet.
+* Faire un premier essai de commande moteur.
 
 ### Géneration de 4 PWM
 
@@ -36,6 +36,14 @@ Nous souhaitons les caractéristiques suivantes :
 * Fréquence de la PWM : **16kHz**
 * Temps mort minimum : **2us**
 * Résolution minimum : **10bits**
+* PWM en commande complémentaire décalée
+
+Calcul de la fréquence :
+
+On configure donc le TIM1 pour génerer des PWM sur les channels 1 et 2 ainsi que leurs complémentaires respectivent. 
+On décide de choisir un rapport cyclique a=0,6 et 1-0,6 pour les tests.
+
+On doit aussi génerer des commandes complémentaires décalée donc on met l'option `Counter Mode: Center Align Mode 1`
 
 #### Calcul du temps mort
 
