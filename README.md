@@ -56,7 +56,7 @@ On doit aussi génerer des commandes complémentaires décalée donc on met l'op
 
 Le tick du temps mort est syncronisé sur la SysTick, qui est 170 MHz sur notre projet
 
-On configure `dead time = 210` ce qui nous donne un ` temps mort = 12us > 2us` .
+On configure `dead time = 210 ticks` ce qui nous donne un ` temps mort = 12us > 2us` .
 
 [Photo_dead_time]
 
