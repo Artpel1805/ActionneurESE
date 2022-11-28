@@ -63,10 +63,14 @@ Nous pouvons voir sur l'oscilloscope les PWM et le dead time:
 
 #### Prise en main du hacheur et cablâge
 
-Nous travaillons sur les phases bleu et jaune, la configuration est la suivante:
+Le module est en fait un hacheur 4 quadrants permettant de délivrer la puissance aux différentes phases de notre moteur.
+Nous le commandons grâce aux PWM générées. Les deads times permettent d'éviter des cours circuits car le temps de commutations des transistors est non nul.
 
 
-|Fonction | Broche|
+Nous travaillons sur deux phases du module (bleu et jaune), Le PinOut STM32 -> Module est le suivant:
+
+
+|STM32 | Broche|
 |---------|--------|
 | GND|36 |
 | PWN 1|11 |
@@ -74,6 +78,9 @@ Nous travaillons sur les phases bleu et jaune, la configuration est la suivante:
 | PWM 2| 12|
 | PWM 2N| 30|
 | Iso reset|15 |
+
+Où les broches du connecteur du modules sont documenté ci dessous:
+![img](assets/PinOut_Connector_PCB.png)
 
 #### Commande start
 
