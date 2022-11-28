@@ -48,7 +48,7 @@ On veut de plus une fréquence de travail de 16kHz. Notre fréquence d'horloge e
 
 On a donc `PSC = 10 - 1`
 
-On décide de choisir un rapport cyclique a=0,6 et 1-0,6 pour les tests.
+On décide de choisir un rapport cyclique `a=0,6` et `a'=1-0,6` pour les tests.
 
 On doit aussi génerer des commandes complémentaires décalée donc on met l'option `Counter Mode: Center Align Mode 1`
 
