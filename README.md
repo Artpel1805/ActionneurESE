@@ -54,8 +54,9 @@ On doit aussi génerer des commandes complémentaires décalée donc on met l'op
 
 #### Calcul du temps mort
 
-La fréquence de la clock est de 170 MHz, on prend donc on configure le
-dead time à 210 pour avoir une valeur minimum de 2us.
+Le tick du temps mort est syncronisé sur la SysTick, qui est 170 MHz sur notre projet
+
+On configure `dead time = 210` ce qui nous donne un ` temps mort = 12us > 2us` .
 
 [Photo_dead_time]
 
