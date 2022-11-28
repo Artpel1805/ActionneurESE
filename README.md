@@ -95,31 +95,31 @@ On décide aussi d'utiliser le `User_Button` pour déclencher la séquence d'amo
 
 #### Premiers tests
 
-On fait un premier test avec un rapport cyclique de 50% mais on remarque
-que le moteur ne démarre pas, tandis que si on augmente le rapport à 55%
-le moteur démarre.
-
-De plus, un rapport cyclique de 70% est trop élevée et fait sauter le moteur,
-affichant "hall overcurrent" et "shunt overcurrent".
-En effet, cela est dû au fait que le démarrage n'est pas assez progressif,
-nous appliquons donc un démarrage progressif pour résoudre ce problème.
-
-
+On fait un premier test avec un rapport cyclique de 60% qui est concluant.
 
 ## Interface de contrôle
 
-**A completer**
+Dans cette partie nous réalisons un shell pour avoir une interface de contrôlle.
 
-Dans cette partie nous allons :
+Il nous permettra de :
 
-* Mesurer la vitesse à partir du codeur présent sur chaque moteur,
-* Mesurer le courant à partir de la / des pin(s) adéquates retourné par le hacheur
+* Démarer le moteur
+* Arrêter le moteur
+* Impleter les futurs fonctions de commande
 
-Rajouter les screens de Doxygen
+Ce shell est en fait une liaison série UART entre notre ordinateur et la STM32.
 
+Nous une utilisons l'UART en interruption pour la reception, car nous ne pouvons pas nous permettre de mobiliser 100% du CPU en attendant les caractères envoyés par l'utilisateur.
 
+On utilise la fonction de callback `HAL_UART_RxCpltCallback` pour traiter la logique.
 
-#### Commande de vitesse
+Lors de la reception d'une chaine de caractère envoyé depuis notre ordinateur la STM32 va effectuer des fonctions que l'on a codé et nous renvoyer une chaine de caractère confirmant la commande.
+
+On implémente la fonction `start` qui doit nous renvoyer `powerOn` et qui démare le moteur.
+
+Ainsi que la fonction `stop` qui désactive simplement les PWM. 
+
+#### Commande et Asservissement
 
 Pour controler la vitesse du moteur, nous allons envoyer une séquence via la liaison UART (par l'USB) de la forme :
 
