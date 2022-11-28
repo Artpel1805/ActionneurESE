@@ -137,6 +137,10 @@ Pour palier à ce problème nous incrémentons pas à pas le CCR
 
 
 ### Asservissement Vitesse
+Notre module comportes 3 signaux en sortie  : 2 signaux en quadrature de phase qui nous permettent de savoir le sens de rotation et un signal qui nous determine la fin d'un tour complet .
+En utilisant l'INC 
+
+
 
 ### Asservissement Courant 
 
