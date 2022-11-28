@@ -151,8 +151,14 @@ Il faut donc activer le `Trigger Event` sur TIM1.
 Pour pouvoir aussi effectuer plusieurs mesures on configure bien le DMA en `Circular`.
 
 
-On récupère une valeure de l'ADC mais il faut la convertir en A. On a une équation du type : 
+On récupère une valeure de tension de l'ADC mais il faut la convertir en A. On a une équation du type : 
 * A = aV +b
+
+Cependant notre récupération du courant n'a pas fonctionné: 
+
+On récupère bien une valeure de courant cohérente la première fois et l'on rentre à chaque Tick de TIM1 dans la callBack de l'ADC mais il semblerait que le DMA ne stocke qu'une valeure dans notre Buffer.
+
+
 
 
 
